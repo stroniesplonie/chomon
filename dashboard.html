@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #f0e4d4;
+            padding: 15px 20px;
+            z-index: 1000;
+            margin: auto 20vw;
+        }
+
+        .centered-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            text-align: center;
+        }
+
+        .dashboard-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            align-content: flex-start
+        }
+
+        .dashboard-buttons {
+            display: flex;
+        }
+
+        .button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: transparent;
+            border-radius: 5px 5px 0 0;
+        }
+
+
+        .dashboard-content {
+            display: none;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            border-radius: 0 5px 5px 5px;
+            background-color: #002551DD;
+            color: #f0e4d4;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #swiatlo {
+            display: block;
+        }
+
+        .machine-list {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .dashboard-shadow {
+            color: #f0e4d4;
+            padding: 40px;
+        }
+
+        input {
+            
+            background-color: transparent;
+            color: #f0e4d4;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .dashboard-content div {
+            overflow: auto;
+        }
+
+        div label {
+            float: left;
+            margin: 10px 0;
+        }
+
+        div input {
+            float: right;
+        }
+
+
+        .main-view {
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-image: url('bg-masthead.jpg');
+            background-size: cover;
+        }
+
+        .title {
+            font-size: 24px;
+        }
+
+        .logout-link {
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            color: #f0e4d4; /* Change the color as needed */
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px; /* Add border-radius for rounded corners */
+            display: inline-block; /* Ensure proper inline display */
+        }
+
+        .swiatlo {
+            background-color: #002551DD;       
+            box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);     
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="main-view">
+        <div class="outer-nav">
+            <nav>
+                <div class="title">TechPage</div>
+                <div>
+                    <a class="logout-link" href="#">Wyloguj się</a>
+                </div>
+            </nav>
+        </div>
+    
+        <div class="dashboard-container centered-section">
+            <div class="dashboard-shadow">
+                <div class="dashboard-buttons">
+                    <div class="button swiatlo" onclick="showDiv('swiatlo')">Swiatlo</div>
+                    <div class="button temperature" onclick="showDiv('temperature')">Temperature</div>
+                    <div class="button machines" onclick="showDiv('machines')">Machines</div>
+                </div>
+        
+                <div id="swiatlo" class="dashboard-content">
+                    <h2>Swiatlo</h2>
+                    <div>
+                        <label for="dawnTime">Dawn Time:</label>
+                        <input type="text" id="dawnTime" name="dawnTime">
+                    </div>
+                    <div>
+                        <label for="sunsetTime">Sunset Time:</label>
+                        <input type="text" id="sunsetTime" name="sunsetTime">
+                    </div>
+                    <div>
+                        <label for="cityInput">City:</label>
+                        <input type="text" id="cityInput" name="cityInput">
+                    </div>
+                    <div>
+                        <label for="time1">Time 1:</label>
+                        <input type="text" id="time1" name="time1">
+                    </div>
+                    <div>
+                        <label for="time2">Time 2:</label>
+                        <input type="text" id="time2" name="time2">
+                    </div>
+                    <div>
+                        <label for="time3">Time 3:</label>
+                        <input type="text" id="time3" name="time3">
+                    </div>
+                </div>
+        
+                <div id="temperature" class="dashboard-content">
+                    <h2>Temperature</h2>
+                    <div>
+                        <label for="temperatureInput">Temperature:</label>
+                        <input type="text" id="temperatureInput" name="temperatureInput">
+                    </div>
+                    <div>
+                        <p>Indoor Temperature:</p>
+                        <p>Outdoor Temperature:</p>
+                    </div>
+                </div>
+        
+                <div id="machines" class="dashboard-content">
+                    <h2>Machines</h2>
+                    <div class="machine-list">
+                        <ul>
+                            <li>Machine 1</li>
+                            <li>Machine 2</li>
+                            <li>Machine 3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+    </div>
+
+
+    
+
+    <script>
+
+        function showDiv(divId) {
+            // Hide all divs
+            document.querySelectorAll('.dashboard-content').forEach(function(div) {
+                div.style.display = 'none';
+            });
+
+            document.querySelectorAll('.button').forEach(function(div) {
+                div.style.backgroundColor = '#00255100';
+                div.style.boxShadow = 'none';
+            });
+
+
+            // Show the selected div
+            document.getElementById(divId).style.display = 'block';
+
+            document.getElementsByClassName(divId)[0].style.backgroundColor = '#002551DD';
+            document.getElementByClassName(divId)[0].style.boxShadow = '0 -10px 10px rgba(0, 0, 0, 0.1)';
+            
+        }
+    </script>
+</body>
+</html>
