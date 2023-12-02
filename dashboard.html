@@ -101,6 +101,9 @@
             float: right;
         }
 
+        div label.base {
+            float: right;
+        }
 
         .main-view {
             overflow-x: hidden;
@@ -156,11 +159,11 @@
                     <h2>Swiatlo</h2>
                     <div>
                         <label for="dawnTime">Dawn Time:</label>
-                        <input type="text" id="dawnTime" name="dawnTime">
+                        <label name="dawnTime" class="base">-</label>
                     </div>
                     <div>
                         <label for="sunsetTime">Sunset Time:</label>
-                        <input type="text" id="sunsetTime" name="sunsetTime">
+                        <label name="sunsetTime" class="base">-</label>
                     </div>
                     <div>
                         <label for="cityInput">City:</label>
@@ -173,10 +176,6 @@
                     <div>
                         <label for="time2">Time 2:</label>
                         <input type="text" id="time2" name="time2">
-                    </div>
-                    <div>
-                        <label for="time3">Time 3:</label>
-                        <input type="text" id="time3" name="time3">
                     </div>
                 </div>
         
