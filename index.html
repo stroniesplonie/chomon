@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #002046;
+            color: #f0e4d4;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #f0e4d4;
+            padding: 15px 20px;
+            z-index: 1000;
+            margin: auto 20vw;
+        }
+
+        .title {
+            font-size: 24px;
+        }
+
+        .centered-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            text-align: center;
+        }
+
+        .scroll-down {
+            cursor: pointer;
+            margin-top: 20px;
+            color: #002046;
+            background-color: #f0e4d4;
+            border-radius: 40px; /* Add border-radius for rounded corners */
+            padding: 20px 40px;
+        }
+
+        .button-negative {
+            cursor: pointer;
+            margin-top: 20px;
+            color: #002046;
+            background-color: #f0e4d4;
+            border-radius: 40px; /* Add border-radius for rounded corners */
+            padding: 20px 40px;
+            text-decoration: none;
+        }
+
+        .description {
+            height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .description-section {
+            padding: 50px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            text-align: center;
+        }
+
+        .description-second {
+            background-color: #002046;
+            color: #f0e4d4;
+        }
+
+        .description-first {
+            background-color: #f0e4d4;
+            color: #002046;
+        }
+
+        footer {
+            color: #f0e4d4;
+            padding: 15px 20px;
+            z-index: 1000;
+            background-color: #00132b;
+            text-align: center;
+        }
+
+        .login-button, .signup-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .main-view {
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-image: url('bg-masthead.jpg');
+            background-size: cover;
+        }
+
+        .login-link, .signup-link {
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            color: #f0e4d4; /* Change the color as needed */
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px; /* Add border-radius for rounded corners */
+            display: inline-block; /* Ensure proper inline display */
+        }
+
+        hr {
+            border: 2px solid #002046;
+            width: 5vw;
+        }
+
+        img {
+            max-width: 15vw;
+            height: auto;
+        }
+
+
+        @media only screen and (max-width: 600px) {
+            nav {
+                margin: 0;
+            }
+
+            img {
+            max-width: 30vw;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-view">
+        <nav>
+            <div class="title">TechPage</div>
+            <div>
+                <a class="login-link" href="#">Zaloguj się</a>
+            </div>
+        </nav>
+    
+        <div class="centered-section">
+            <h1>Welcome to TechPage</h1>
+            <br><br>
+            <img src="logo4.png" alt="Tech Image">
+            <br><br><br><br>
+            <div class="scroll-down" onclick="scrollToDescription()">Więcej</div>
+        </div>
+    </div>
+    
+
+    <div class="description">
+        <div id="description-scroll" class="description-section description-first">
+            <h2>Home Control to inteligentny system zarządzania energią w budynkach</h2>
+            <hr>
+            <p>Wykorzystując dane sensoryczne do efektywnego zarządzania użyciem energii w budynkach, minimalizuje straty</p>
+                    
+        </div>
+        <div class="description-section description-second">
+            <h2>Zaloguj się, aby skorzystać</h2>
+            <a class="button-negative" href="#">Login</a>
+    
+        </div>
+        <footer>
+                <p class="foot-center">Copyright Home Control</p>
+        </footer>
+    </div>
+    
+
+    <script>
+        function scrollToDescription() {
+            document.getElementById('description-scroll').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
